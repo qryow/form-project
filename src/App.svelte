@@ -36,16 +36,23 @@
   }
 
   function handleSubmit(e) {
-  e.preventDefault();
-  if (validateForm()) {
-    showNotification = true;
-
-    setTimeout(() => {
-      showNotification = false;
-    }, 40000);
+    e.preventDefault();
+    if (validateForm()) {
+      showNotification = true;
+      form.set({
+        name: '',
+        company: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: '',
+        acceptPolicy: false,
+      });
+      setTimeout(() => {
+        showNotification = false;
+      }, 4000);
+    }
   }
-}
-
 
   function closeNotification() {
     showNotification = false;
@@ -53,6 +60,7 @@
 </script>
 
 <main class="wrapper">
+  <img src="/src/assets/bg.png" alt="background" loading="lazy">
   <h1>Hello</h1>
   <form class="form" on:submit={handleSubmit}>
     <h4>For business enquiries please <br> use the form below</h4>
