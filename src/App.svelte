@@ -60,7 +60,6 @@
 </script>
 
 <main class="wrapper">
-  <img src="/src/assets/bg.png" alt="background" loading="lazy">
   <h1>Hello</h1>
   <form class="form" on:submit={handleSubmit}>
     <h4>For business enquiries please <br> use the form below</h4>
