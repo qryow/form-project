@@ -4,13 +4,9 @@
   export let error;
 </script>
 
-<div class="input">
+<div class="input {error ? value ? "" : 'error-state' : ''}">
   <label>{label}</label>
-  <textarea bind:value={value}></textarea>
-
-  {#if error}
-    <span class="error">{error}</span>
-  {/if}
+  <textarea bind:value={value} placeholder={error ? error : ''} ></textarea>
 </div>
 
 <style>
@@ -44,8 +40,8 @@
   .input:focus-within label {
     color: white;
   }
-  .error {
+  .input textarea::placeholder {
+    font-size: 14px;
     color: red;
-    font-size: 0.8rem;
   }
 </style>

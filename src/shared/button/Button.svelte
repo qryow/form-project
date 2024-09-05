@@ -3,7 +3,7 @@
   export let color;
 </script>
 
-<button class="form_btn" style="background-color: {color}">
+<button class="form_btn" type="submit" style="background-color: {color}">
   {label}
 </button>
 
@@ -15,9 +15,10 @@
     border-radius: 50px;
     border: none;
     outline: none;
+    transition: 0.3s;
   }
   .form_btn:hover {
-    background-color: #404463;
+    background-color: #404463 !important;
     cursor: pointer;
   }
 </style>

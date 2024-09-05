@@ -1,18 +1,26 @@
 <script>
   export let label;
-  export let value;
+  export let checked = false; 
   export let error = null;
+
+  function handleChange(event) {
+    checked = event.target.checked;
+  }
 </script>
 
 <div class="checkbox-group">
-  <input type="checkbox" />
+  <input type="checkbox" checked={checked} on:change={handleChange} />
   <label>I accept <a href="#">Terms and Privacy Policy</a></label>
+  {#if error}
+    <span class="error">{error}</span>
+  {/if}
 </div>
 
 <style>
   .checkbox-group {
-    width: 90%;
-    margin: 15px 0px 10px;
+    position: relative;
+    width: 95%;
+    margin: 15px 0px 15px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -58,5 +66,12 @@
   }
   .checkbox-group label a {
     color: #B9BEE5;
+  }
+  .error {
+    position: absolute;
+    left: 0;
+    bottom: -24px;
+    color: red;
+    font-size: 14px;
   }
 </style>
